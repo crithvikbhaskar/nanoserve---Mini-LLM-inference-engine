@@ -1,0 +1,38 @@
+[project]
+name = "nanoserve"
+version = "0.1.0"
+description = "Mini LLM inference engine with KV cache, paged attention, and continuous batching"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "nanoserve authors" }]
+license = { text = "MIT" }
+dependencies = [
+    "torch>=2.2.0",
+    "transformers>=4.40.0",
+    "safetensors>=0.4.0",
+    "pydantic>=2.6.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
+
